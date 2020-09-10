@@ -28,10 +28,12 @@ submitButton.on("click", (event) => {
 
     // getSafetyScore does a post to our "api/login" route and if successful, redirects us the the members page
     function getSafetyScore(city) {
+      console.log('Enter getSafetyScore');
       $.get("/api/safetyScore", {
         city: city
       })
         .then(function(response) {
+          console.log('Successful getSafetyScore');
 //         window.location.replace("/members");
 // add the jquery code to display the safety score
           console.log(response);
