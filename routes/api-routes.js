@@ -2,7 +2,54 @@
 var db = require("../models");
 var passport = require("../config/passport");
 
+// -- begin geocoding
+const NodeGeocoder = require('node-geocoder');
+ 
+const options = {
+  provider: 'google',
+ 
+  // Optional depending on the providers
+  // fetch: customFetchImplementation,
+  apiKey: 'AIzaSyCfDYADGJE3VqDySqGIaOEm11YWCi-4nDs', // for Mapquest, OpenCage, Google Premier
+  formatter: null // 'gpx', 'string', ...
+};
+
+const geocoder = NodeGeocoder(options);
+
+async function getMyGeoCode(cityName) {
+const res = await geocoder.geocode(cityName);
+console.log('res',res);
+console.log('res.lat', res[0].latitude, 'res.long', res[0].longitude);
+return res;
+};
+ 
+
+// let cityname = 'Washington DC, USA'
+// getMyGeoCode(cityname);
+
+// -- end geocoding
+
+// -- begin Amaedeus
+let Amadeus = require("amadeus");
+let amadeus = new Amadeus({
+  clientId: "sUAyDrSxoGCj56mOBwSk0HZkcKvSMwaM",
+  clientSecret: "iLaaA0Tho8mG7AAm"
+});
+
+// amadeus.safety.safetyRatedLocations.get({
+//   latitude: 41.397158,
+//   longitude: 2.160873
+// }).then(function (response) {
+//   console.log('success-response',response);
+// }).catch(function (response) {
+//   console.error('error-response',response);
+// });
+
+
 module.exports = function(app) {
+
+
+
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -46,6 +93,30 @@ module.exports = function(app) {
       });
     }
   });
+  app.get("/api/safetyScore", function(req, res) {
+ // First extract city Name from the req
+ // Do geocoding and get lat, long from geocoding API
+ //console.log('req',req);
+ console.log('req.params.city',req.params.city);
+ console.log('req.body.city', req.body.city);
+ console.log('req.query.city', req.query.city);
+   let result = getMyGeoCode(req.query.city);
+console.log('result',result);
+console.log ('lat', result[0].latitude);
+console.log ('long', result[0].longitude);
+ // call Amadeus  API to get safety score
+ let obj = JSON.parse('{ "latitude":result[0].latitude, "longitude":result[0].longitude}');
+amadeus.safety.safetyRatedLocations.get(obj).then(function (response) {
+  console.log('success-response',response);
+  res.json(response.data[0].safetyScores);
+}).catch(function (err) {
+  console.error('error-response',err);
+});
+
+
+ // return city name and safety score back to front end
+
+    });
   app.post("/api/city", function(req, res) {
     db.City.create({
       name: req.body.name,

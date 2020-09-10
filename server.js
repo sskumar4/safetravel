@@ -1,8 +1,72 @@
 // Requiring necessary npm packages
-var express = require("express");
-var session = require("express-session");
+const express = require("express");
+const session = require("express-session");
 // Requiring passport as we've configured it
-var passport = require("./config/passport");
+const passport = require("./config/passport");
+
+
+// let Amadeus = require("amadeus");
+// let amadeus = new Amadeus({
+//   clientId: "sUAyDrSxoGCj56mOBwSk0HZkcKvSMwaM",
+//   clientSecret: "iLaaA0Tho8mG7AAm"
+// });
+// -- begin geocoding
+// const NodeGeocoder = require('node-geocoder');
+ 
+// const options = {
+//   provider: 'google',
+ 
+//   // Optional depending on the providers
+//   // fetch: customFetchImplementation,
+//   apiKey: 'AIzaSyCfDYADGJE3VqDySqGIaOEm11YWCi-4nDs', // for Mapquest, OpenCage, Google Premier
+//   formatter: null // 'gpx', 'string', ...
+// };
+ 
+// const geocoder = NodeGeocoder(options);
+// //let cityName = 'Barcelona';
+// // Using callback
+// // async (cityName) => getGeoCode{
+// async function getMyGeoCode(cityName) {
+// const res = await geocoder.geocode(cityName);
+// console.log('res',res);
+// console.log('res.lat', res[0].latitude, 'res.long', res[0].longitude);
+// };
+// let cityname = 'Washington DC, USA'
+// getMyGeoCode(cityname);
+
+// -- end geocoding
+
+
+// amadeus.safety.safetyRatedLocations.get({
+//   latitude: 41.397158,
+//   longitude: 2.160873
+// }).then(function (response) {
+//   console.log('success-response',response);
+// }).catch(function (response) {
+//   console.error('error-response',response);
+// });
+
+// $.ajax({
+//   type: "get",
+//   url: "https://test.api.amadeus.com/v1/safety/safety-rated-locations?latitude= 41.403749&longitude= 2.174387",
+//   dataType: 'json',
+//   async: true,
+//   beforeSend: function(xhr) {
+//       xhr.setRequestHeader('Authorization',
+//           'Bearer ' + amadeusAccessToken);
+//   },                
+//   success: function(json) {
+//       console.log(json);
+//   }
+// });
+// amadeus.safety.safetyRatedLocations.get({
+//   latitude: 41.397158,
+//   longitude: 2.160873
+// }).then(function(response){
+//   console.log(response.data);
+// }).catch(function(responseError){
+//   console.log(responseError.code);
+// });
 
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;

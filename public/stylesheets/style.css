@@ -1,4 +1,9 @@
 form.signup,
+form.city,
 form.login {
   margin-top: 50px;
+}
+
+h2.cen {
+  text-align: center;
 }
