@@ -1,6 +1,8 @@
 $(document).ready(function() {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
+  const cityName = $("#city-name");
+  const citySafetyScore = $("#city-safety-score");
 
   $.get("/api/user_data").then(function(data) {
     $(".member-name").text(data.email);
@@ -21,6 +23,7 @@ submitButton.on("click", (event) => {
     getSafetyScore(cityData.city);
     cityInput.val("");
 
+
   // let cityDetails = cityInput.
   // location.replace("scores.html");
 });
@@ -37,6 +40,26 @@ submitButton.on("click", (event) => {
 //         window.location.replace("/members");
 // add the jquery code to display the safety score
           console.log(response);
+          console.log('NAME!!',response.name);
+
+          // append city Name
+          cityName.append( `<p style="background:yellow; list-style-type: none;font-size:14px;
+          font-weight:bold">  ${response.name} </p>`);
+
+          // append city safety scores
+          
+          citySafetyScore.append(`<ul>`);
+
+          for (property in response.safetyScores) {
+           
+            citySafetyScore.append(` <li style="background:yellow; list-style-type: none;font-size:14px;
+            font-weight:bold"> ${property}:  ${response.safetyScores[property]} </li> ` ) ;
+            citySafetyScore.append(`</ul>`);
+            
+
+         }
+        //  citySafetyScore.append(JSON.stringify(response.safetyScores));
+
           // If there's an error, log the error
         })
         .catch(function(err) {

@@ -36,15 +36,6 @@ let amadeus = new Amadeus({
   clientSecret: "iLaaA0Tho8mG7AAm"
 });
 
-// amadeus.safety.safetyRatedLocations.get({
-//   latitude: 41.397158,
-//   longitude: 2.160873
-// }).then(function (response) {
-//   console.log('success-response',response);
-// }).catch(function (response) {
-//   console.error('error-response',response);
-// });
-
 
 module.exports = function(app) {
 
@@ -96,23 +87,21 @@ module.exports = function(app) {
   app.get("/api/safetyScore", async function(req, res) {
  // First extract city Name from the req
  // Do geocoding and get lat, long from geocoding API
- //console.log('req',req);
- console.log('req.params.city',req.params.city);
- console.log('req.body.city', req.body.city);
+ 
+
  console.log('req.query.city', req.query.city);
    let result = await getMyGeoCode(req.query.city);
 console.log('result',result);
 console.log ('lat', result[0].latitude);
 console.log ('long', result[0].longitude);
- // call Amadeus  API to get safety score
-//  let obj = JSON.parse('{ "latitude": result[0].latitude, \
-//   "longitude": result[0].longitude }');
+
+// call Amadeus  API to get safety score
 amadeus.safety.safetyRatedLocations.get({
   latitude: result[0].latitude,
   longitude: result[0].longitude,
 }).then(function (response) {
   console.log('success-response',response);
-  res.json(response.data);
+  res.json(response.data[0]);
 }).catch(function (err) {
   console.error('error-response',err);
 });
