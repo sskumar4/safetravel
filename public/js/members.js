@@ -42,13 +42,17 @@ submitButton.on("click", (event) => {
           console.log(response);
           console.log('NAME!!',response.name);
 
+          //  cityName.empty();
+          //  citySafteyScore.empty();
           // append city Name
-          cityName.append( `<p style="background:yellow; list-style-type: none;font-size:14px;
-          font-weight:bold">  ${response.name} </p>`);
+          cityName.html( `<p style="background:yellow; font-size:14px;
+          font-weight:bold" >
+          ${response.name}</p>`);
 
           // append city safety scores
           
-          citySafetyScore.append(`<ul>`);
+          
+          citySafetyScore.html(`<ul>`);
 
           for (property in response.safetyScores) {
            
@@ -58,7 +62,6 @@ submitButton.on("click", (event) => {
             
 
          }
-        //  citySafetyScore.append(JSON.stringify(response.safetyScores));
 
           // If there's an error, log the error
         })
