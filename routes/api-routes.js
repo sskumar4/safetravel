@@ -111,6 +111,7 @@ amadeus.safety.safetyRatedLocations.get({
 
     });
   app.post("/api/citySafetyScore", function(req, res) {
+    if (req.user) {
     console.log('In route - api/citySafetyScore');
     console.log('req.body',req.body);
     console.log(req.user);
@@ -122,7 +123,8 @@ amadeus.safety.safetyRatedLocations.get({
       scPhysicalHarm: req.body.scPhysicalHarm,
       scPoliticalFreedom: req.body.scPoliticalFreedom,
       scTheft: req.body.scTheft,
-      scWomen:req.body.scWomen
+      scWomen:req.body.scWomen,
+      Usersid:1
     })
       .then(function(data) {
         res.json(data);
@@ -130,5 +132,6 @@ amadeus.safety.safetyRatedLocations.get({
       .catch(function(err) {
         res.status(401).json(err);
       });
+    }
     });
 };
