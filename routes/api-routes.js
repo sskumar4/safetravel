@@ -111,7 +111,26 @@ amadeus.safety.safetyRatedLocations.get({
 
     });
   app.post("/api/citySafetyScore", function(req, res) {
+    let userid =1;
     if (req.user) {
+    //   db.User.findOne({ where: { email: req.user.email } }).then(user => {
+    //     console.log(user.get({ plain: true }));
+    // }).finally(() => {
+    //     sequelize.close();
+    // });
+    console.log('user!!!',req.user);
+    db.User.findOne({ where: { email: req.user.email } }).then (function (user) {
+    if (user === null) {
+      console.log('Not found!');
+    } else {
+      console.log(user.id); // true
+      console.log(user.email); // 'My Title'
+      userid = user.id;
+    }
+  }).catch(function (err){
+    console.log(err);
+    res.status(401).json(err);
+  });
     console.log('In route - api/citySafetyScore');
     console.log('req.body',req.body);
     console.log(req.user);
@@ -124,7 +143,7 @@ amadeus.safety.safetyRatedLocations.get({
       scPoliticalFreedom: req.body.scPoliticalFreedom,
       scTheft: req.body.scTheft,
       scWomen:req.body.scWomen,
-      Usersid:1
+      UserId: userid
     })
       .then(function(data) {
         res.json(data);
