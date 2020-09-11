@@ -153,4 +153,15 @@ amadeus.safety.safetyRatedLocations.get({
       });
     }
     });
+    app.get("/api/savedsafecities", (req, res) => {
+      console.log(req.body)
+      db.City.findAll({
+      })
+        .then((dbcity) => {
+          res.json(dbcity);
+        })
+        .catch(err => {
+          res.status(401).json(err);
+        });
+    }); 
 };

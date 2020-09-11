@@ -45,7 +45,7 @@ $(document).ready(function() {
       return;
     }
     saveCityToDb();
-  
+    window.location.replace("/wishlist")
   
     // let cityDetails = cityInput.
     // location.replace("scores.html");

@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+ 
   <link href="stylesheets/style.css" rel="stylesheet">
 </head>
 
@@ -30,14 +31,13 @@
 
         <form class="city">
           <div class="form-city">
-            <label for="exampleInputEmail1" ><h4 style="font-weight:bold">How safe is the city?</h4></label>
-            <input type="text" class="form-control" id="city-input" placeholder="Enter city name">
-          </div>
-         
+            <label for="safeCity"><h4 style="font-weight:bold">How safe is the city?</h4></label>
+           <input type="text" class="form-control" id="city-input" placeholder="Enter city name"> 
+          </div>             
 
-          <button id="submit" type="submit" class="btn btn-default">Submit</button>
+       <button id="submit" type="submit" class="btn btn-default">Submit</button> 
         </form>
-        <h3 style="font-weight:bold;">Destination Safety Ratings <span class="city-details"></span></h3>
+        <h3 style="font-weight:bold;">Destination Safety Ratings</h3>
         <div class="col-md-5 vheight" style="background-color:lightgrey">
           <h4 style="font-weight:bold;">City Name</h4>
           <div id="city-name">
@@ -55,13 +55,13 @@
 
     </div>
   </div>
-
-
-  
+  <script>
+    $(document).ready(function() {
+       $(document).foundation();
+    })
+ </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/members.js"></script>
-
 </body>
-
 </html>
