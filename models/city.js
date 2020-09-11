@@ -10,7 +10,31 @@ module.exports = function(sequelize, DataTypes) {
       // }
     },
     // The safety rating score received from amadeus API
-    ratingScore: {
+    scLgbtq: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    scMedical: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    scOverall: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    scPhysicalHarm: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    scPoliticalFreedom: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    scTheft: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    scWomen: {
       type: DataTypes.INTEGER,
       allowNull: false
     }

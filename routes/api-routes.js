@@ -110,10 +110,19 @@ amadeus.safety.safetyRatedLocations.get({
  // return city name and safety score back to front end
 
     });
-  app.post("/api/city", function(req, res) {
+  app.post("/api/citySafetyScore", function(req, res) {
+    console.log('In route - api/citySafetyScore');
+    console.log('req.body',req.body);
+    console.log(req.user);
     db.City.create({
-      name: req.body.name,
-      ratingScore: req.body.ratingScore
+      name: req.body.city,
+      scLgbtq: req.body.scLgbtq,
+      scMedical: req.body.scMedical,
+      scOverall: req.body.scOverall,
+      scPhysicalHarm: req.body.scPhysicalHarm,
+      scPoliticalFreedom: req.body.scPoliticalFreedom,
+      scTheft: req.body.scTheft,
+      scWomen:req.body.scWomen
     })
       .then(function(data) {
         res.json(data);
