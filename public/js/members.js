@@ -32,9 +32,9 @@ $(document).ready(function() {
       .then(function(response) {
         console.log("Successfull Saved city to DB!");
   })
-      .catch(function(err) {
-        console.log(err);
-      });
+      // .catch(function(err) {
+      //   console.log(err);
+      // });
 
     }
   saveWishListBtn.on("click", (event) => {
@@ -145,9 +145,9 @@ submitButton.on("click", (event) => {
          }
           // If there's an error, log the error
         })
-        .catch(function(err) {
-          console.log(err);
-        });
+        // .catch(function(err) {
+        //   console.log(err);
+        // });
     }
 }
 

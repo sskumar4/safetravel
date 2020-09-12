@@ -1,4 +1,4 @@
-
+$(document).ready(function () {
  const cityName = $("#city-name");
  const citySafetyScore = $("#city-safety-score");
 
@@ -9,10 +9,11 @@ function getSavedSafeCities() {
     for (let i=0; i < data.length; i++) {
     displaySafeDestination(data[i]);
     
-    }
-  }).catch (function(err) {
-    console.log(err);
-  });
+    };
+  // }).catch (function(err) {
+  //   console.log(err);
+  // });
+});
 }
 
 getSavedSafeCities();
@@ -46,4 +47,5 @@ function displaySafeDestination(data) {
      citySafetyScore.append(`</ul>`);
      
 
-}
+};
+});

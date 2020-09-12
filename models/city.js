@@ -43,7 +43,8 @@ module.exports = function(sequelize, DataTypes) {
     // We're saying that a City should belong to an User
     // A City can't be created without an User due to the foreign key constraint
     City.belongsTo(models.User, {
-      foreignKey: {
+      foreignKey:  {
+        
         allowNull: false
       }
     });

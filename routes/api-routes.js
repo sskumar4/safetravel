@@ -1,3 +1,5 @@
+var express = require("express");
+var router = express.Router();
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
@@ -113,20 +115,14 @@ amadeus.safety.safetyRatedLocations.get({
   app.post("/api/citySafetyScore", function(req, res) {
     let userid =1;
     if (req.user) {
-    //   db.User.findOne({ where: { email: req.user.email } }).then(user => {
-    //     console.log(user.get({ plain: true }));
-    // }).finally(() => {
-    //     sequelize.close();
-    // });
     console.log('user!!!',req.user);
-    db.User.findOne({ where: { email: req.user.email } }).then (function (user) {
-    if (user === null) {
-      console.log('Not found!');
-    } else {
-      console.log(user.id); // true
-      console.log(user.email); // 'My Title'
-      userid = user.id;
-    }
+    db.User.findOne({ where: { email: req.user.email } }).then (function (curUser) {
+      console.log(curUser);
+      console.log(curUser.id); 
+      console.log(curUser.email); // 'My email'
+      userid = curUser.id;
+      console.log('userid', userid);
+    
   }).catch(function (err){
     console.log(err);
     res.status(401).json(err);
@@ -154,8 +150,25 @@ amadeus.safety.safetyRatedLocations.get({
     }
     });
     app.get("/api/savedsafecities", (req, res) => {
-      console.log(req.body)
+      console.log(req.body);
+      let userid =1;
+      if (req.user) {
+      db.User.findOne({ where: { email: req.user.email } }).then (function (user) {
+      if (user === null) {
+        console.log('Not found!');
+      } else {
+        console.log('my user id', user.id); 
+        console.log(' my user email', user.email); // 'My email'
+        userid = user.id;
+      }
+    }).catch(function (err){
+      console.log(err);
+      res.status(401).json(err);
+    });
       db.City.findAll({
+        where: {
+          UserId: userid
+        }
       })
         .then((dbcity) => {
           res.json(dbcity);
@@ -163,5 +176,6 @@ amadeus.safety.safetyRatedLocations.get({
         .catch(err => {
           res.status(401).json(err);
         });
-    }); 
-};
+      };
+});
+}
