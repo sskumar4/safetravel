@@ -112,16 +112,34 @@ amadeus.safety.safetyRatedLocations.get({
  // return city name and safety score back to front end
 
     });
+
+      app.get("/api/city", (req, res)=>{
+   
+          console.log('user!!!',req.user);
+          db.User.findOne({ where: { email: req.user.email } }).then (function (curUser) {
+            console.log(curUser);
+            console.log(curUser.id); 
+            console.log(curUser.email); // 'My email'
+            userid = curUser.id;
+            console.log('userid', userid);
+          res.json(curUser)
+        }).catch(function (err){
+          console.log(err);
+          res.status(401).json(err);
+        });
+      })
+    
+
   app.post("/api/citySafetyScore", function(req, res) {
     let userid =1;
     if (req.user) {
     console.log('user!!!',req.user);
     db.User.findOne({ where: { email: req.user.email } }).then (function (curUser) {
-      console.log(curUser);
-      console.log(curUser.id); 
-      console.log(curUser.email); // 'My email'
+      console.log('curUser????', curUser);
+      console.log('curUser.id????',curUser.id); 
+      console.log('curUser.email????',curUser.email); // 'My email'
       userid = curUser.id;
-      console.log('userid', userid);
+      console.log('userid????', userid);
     
   }).catch(function (err){
     console.log(err);
@@ -149,33 +167,39 @@ amadeus.safety.safetyRatedLocations.get({
       });
     }
     });
-    app.get("/api/savedsafecities", (req, res) => {
+
+    //render all saved safe cities
+    app.get("/api/savedsafecities", async (req, res) => {
+      console.log("IN GET SAVEDSAFECITIES");
       console.log(req.body);
       let userid =1;
       if (req.user) {
-      db.User.findOne({ where: { email: req.user.email } }).then (function (user) {
-      if (user === null) {
-        console.log('Not found!');
+      let user = await db.User.findOne(
+        { where: { 
+          email: req.user.email 
+        } 
+      });
+      userid = user.id;
+      console.log('userid to be passed to city table query--1',userid);
+      let dbcity = await db.City.findAll({
+        // where: {
+        //   // UserId: userid
+        // }
+      });
+      // db.City.findAll().then(function( data){
+      //   console.log('data',data);
+      //   //let test = [{test:"test"}];
+      //   let test = {test: [{value: "hello"}]}
+      //   res.render("wishlist", test);
+      // })
+
+       //   console.log('dbcity',dbcity);
+  
+   
+        
+
       } else {
-        console.log('my user id', user.id); 
-        console.log(' my user email', user.email); // 'My email'
-        userid = user.id;
+        res.status(401).json(err);
       }
-    }).catch(function (err){
-      console.log(err);
-      res.status(401).json(err);
-    });
-      db.City.findAll({
-        where: {
-          UserId: userid
-        }
-      })
-        .then((dbcity) => {
-          res.json(dbcity);
-        })
-        .catch(err => {
-          res.status(401).json(err);
-        });
-      };
 });
 }

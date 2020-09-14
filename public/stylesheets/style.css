@@ -4,9 +4,22 @@ form.login {
   margin-top: 50px;
 }
 
-h2.cen {
+h1.cen {
   text-align: center;
+  font-size: l50px;
 }
+
+h2{
+
+  padding-top: 15px;
+}
+
+label{
+
+  font-size: 20px;
+  font-weight: bold;
+}
+
 
 #ul.no-bullets {
   list-style-type: none; /* Remove bullets */
@@ -16,4 +29,13 @@ h2.cen {
 .vheight
 {
 height: 200px;
+}
+.center {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 50%; 
+  margin-left: -150px;
+  margin-top: -150px;
 }

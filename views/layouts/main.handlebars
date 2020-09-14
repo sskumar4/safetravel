@@ -4,15 +4,42 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+ 
+ {{!-- <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous"> --}}
+
 		<link rel="stylesheet" href="/stylesheets/style.css" type="text/css" />
 		<title>SafeTravel</title>
 		<script src="https://code.jquery.com/jquery.js"></script>
-		{{!-- <script src="/assets/js/burgers.js"> --}}
-		</script>
 	</head>
 	<body>
-		<div class="container-md">
-    {{!-- <div><img src="/assets/img/burger.png" , alt="burger image"> </div>  --}}
+	  <nav class="pure-menu pure-menu-horizontal ">
+      <h1 class="cen"><a href="#" class="pure-menu-heading pure-menu-link">Safe<span style="color:#0078E7;font-size:40px">Travel</span></a></h1>
+         {{!--<ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a href="/logout" class="pure-menu-link">Logout</a>
+          </li>
+          <li class="pure-menu-item">
+            <a href="/wishlist" class="pure-menu-link">Wish List</a>
+         </li>        
+        </ul> --}}
+
+
+
+
+        {{!-- <div class="container-fluid">
+          <div class="navbar-header">
+            <h2>Safe Travel</h2>
+            <a class="navbar-brand" href="/logout">
+              Logout | 
+            </a>
+            <a class="navbar-brand" href="/wishlist">
+              Wish List
+            </a>
+          </div>
+        </div> --}}
+    </nav>
+		<div class="container-md ml-2 pl-2 border">
 
 		{{{ body }}}
   </div>

@@ -1,24 +1,12 @@
-  <div class="container">
+ <div class="container-md m-1 p-1">
     <div class="row">
-      <div class=" row col-md-7 col-md-offset-1">
+      <div class="col-md-11 m-1 p-1">
         <!-- <h2>Welcome <span class="member-name"></span></h2> -->
-        <h3>My safe travel destinations Wish List</h3>
-        
-        <!-- <h3>Destination Safety Ratings <span class="city-details"></span></h3> -->
-        <div class="row" id="one-city">
-        <div class="col-md-5 vheight" style="background-color:lightgrey">
-          <h4 style="font-weight:bold;">City Name</h4>
-          <div id="city-name">
-            
-          </div>
-        </div>
-        <div class="col-md-5 vheight" style="background-color:lightgrey">
-          <h4 style="font-weight:bold;">Safety Score</h4>
-          <div id="city-safety-score"></div>
-        </div>
-      </div>
-        
-      </div>
+        <div class="row">
+        <h3 style="margin : auto">My safe travel destinations Wish List</h3> 
+        </div>    
+
+      {{> cities/city-block}}
 
     </div>
   </div>

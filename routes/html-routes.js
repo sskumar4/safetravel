@@ -2,6 +2,7 @@
 var express = require("express");
 var router = express.Router();
 var path = require("path");
+var db = require("../models");
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -35,9 +36,23 @@ module.exports = function(app) {
     res.render("members");
   });
 
-  app.get("/wishlist", isAuthenticated, function(req, res) {
+  
+  app.get("/wishlist", isAuthenticated, async function(req, res) {
     // res.sendFile(path.join(__dirname, "../public/wishlist.html"));
-    res.render("wishlist");
-  });
+    console.log("In /wishlist html routes req.user", req.user);
+    let dbCity = await db.City.findAll({
 
+    });
+    console.log(dbCity);
+    let hbsObject = {cities: dbCity}
+    res.render("wishlist",hbsObject);
+    // db.City.findAll().then(function( data){
+    //   console.log('data',data);
+    //   //let test = [{test:"test"}];
+    //   let test = {test: [{value: "hello"}]};
+    //   console.log('test',test);
+    //   res.render("wishlist", test);
+    // })
+    //res.render("wishlist");
+  }); 
 };
