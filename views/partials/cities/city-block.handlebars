@@ -1,40 +1,41 @@
     {{#each cities}}
-<div class="row">
-	<h4 style="margin: auto; margin-top:30px"> City Name:  {{this.dataValues.name}} </h4>
-</div>
-<div class="row">
-  <h5 style="margin: auto; margin-top:20px">Safety Scores </h5>
-</div>
-
-<div class="row mt-3">
-  <div class="col-md-5">
-    <ul>
-      <li>
-        lgbtq : {{this.dataValues.scLgbtq}}
-      </li>
-      <li>
-        scMedical: {{this.dataValues.scMedical}}
-      </li>
-      <li>
-        scOverall: {{this.dataValues.scOverall}} 
-      </li>
-      <li>
-        scPhysicalHarm: {{this.dataValues.scPhysicalHarm}}
-      </li>
-    </ul>
-  </div>
-  <div class="col-md-5">
-    <ul>
-      <li>
-        scPoliticalFreedom: {{this.dataValues.scPoliticalFreedom}}
-      </li>
-      <li> 
-        scTheft: {{this.dataValues.scTheft}}
-      </li>
-      <li>
-        scWomen: {{this.dataValues.scWomen}}
-    </ul>
-  </div>
-  </div>
-</div>
+      <div class="row">
+      	<h6 style="margin: auto; margin-top:20px"> City Name:  {{this.dataValues.name}}</h6>
+      </div>
+      {{!-- <div class="row">
+        <h5 style="margin: auto; margin-top:20px">Safety Scores </h5>
+      </div> --}}
+      <div class="form-box">
+        <h6 style="text-align: center; margin-top:20px">Safety Scores </h6>
+        <div class="row mt-3" >
+          <div class="col-md-5"style="margin: auto" >
+            <ul>
+              <li class="selected">
+                Overall: {{this.dataValues.scOverall}} 
+              </li>
+              <li>
+                LGBTQ : {{this.dataValues.scLgbtq}}
+              </li>
+              <li>
+                Medical: {{this.dataValues.scMedical}}
+              </li>
+              <li>
+                Physical Harm: {{this.dataValues.scPhysicalHarm}}
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-5">
+            <ul>
+              <li>
+                Political Freedom: {{this.dataValues.scPoliticalFreedom}}
+              </li>
+              <li> 
+                Theft: {{this.dataValues.scTheft}}
+              </li>
+              <li>
+                Women: {{this.dataValues.scWomen}}
+            </ul>
+          </div>
+        </div>
+      </div>
   {{/each}}

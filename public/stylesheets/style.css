@@ -25,12 +25,19 @@ h2{
 }
 
 
+.selected{
+  
+  background-color:rgb(232, 240, 114);
+}
+
 
 label{
 
   font-size: 15px;
   font-weight: bold;
 }
+
+
 
 
 #ul.no-bullets {
@@ -40,7 +47,7 @@ label{
 }
 .vheight
 {
-height: 200px;
+height: 300px;
 }
 .center {
   margin-left: 550px;
@@ -71,4 +78,8 @@ height: 200px;
   background-color: #a300cc;
   color: white;
   text-decoration: none;
+}
+
+.btn{
+  margin-top: 10px;
 }

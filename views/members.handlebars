@@ -1,4 +1,4 @@
-<div class="container flex">
+<div class="container-fluid p-0 flex">
 <ul class="nav" style="display:flex; justify-content:center">
     <li class="item"><a href="/wishlist"> Wish List </a></li>
     <li class="item"><a href="/logout"> Logout </a></li>   
@@ -7,50 +7,53 @@
 
 
 
-  <div class="container">
-    <div class="row">
-      <div class=" row col-md-7 col-md-offset-1">
-        <h2>Welcome <span class="member-name"></span></h2>
-
-        <form class="city">
-          <div class="form-city">
-            <label for="safeCity"><h4 style="font-weight:bold">How safe is the city?</h4></label>
-           <!-- <input type="text" class="form-control" id="city-input" placeholder="Enter city name">  -->
-           <!-- <label for="cities">Choose a city:</label> -->
-           <select name="cities" id="city-input">
-             <option value="Bangalore">Bangalore, India</option>
-             <option value="Barcelona Spain">Barcelona, Spain</option>
-             <option value="Berlin">Berlin, Germany</option>
-             <option value="Dallas">Dallas, Texas</option>
-             <option value="London">London, United Kingdom</option>
-             <option value="New York">New York, USA</option>
-             <option value="San Fransisco">San Fransisco, USA</option>
-           </select>
-           <br><br>
-          <input id="submit" type="submit" value="Submit">
-
-          </div>                   
-
-       <!-- <button id="submit" type="submit" class="btn btn-default">Submit</button>  -->
-        </form>
-        <h3 style="font-weight:bold;">Destination Safety Ratings</h3>
-        <div class="col-md-5 vheight" style="background-color:lightgrey">
-          <h4 style="font-weight:bold;">City Name</h4>
-          <div id="city-name">
-            
+  <div class="container-fluid p-0">      
+      <div class="row col-md-12">
+        <h4 style="text-align:center; margin-top:20px; color:#0078E7">Welcome <span class="member-name"></span></h4>
+        <div class="row">
+          <div class="col-md-5">
+            <form class="form-box">
+              <div class="form-city">
+              <label for="safeCity"><h6 style="font-weight:bold">How safe is the city?</h6></label>
+          
+              <select name="cities" id="city-input">
+               <option value="Bangalore">Bangalore, India</option>
+               <option value="Barcelona Spain">Barcelona, Spain</option>
+               <option value="Berlin">Berlin, Germany</option>
+               <option value="Dallas">Dallas, Texas</option>
+               <option value="London">London, United Kingdom</option>
+               <option value="New York">New York, USA</option>
+               <option value="San Fransisco">San Fransisco, USA</option>
+              </select>
+              <input id="submit" type="submit" value="Submit">
+              </div>                    
+              <!-- <button id="submit" type="submit" class="btn btn-default">Submit</button>  -->
+            </form>
+         </div>  
+       
+          <div class="col-md-6 m-0 p-0">        
+              <div class="row">
+            <h6 style="font-weight:bold;">Destination Safety Ratings</h6>
+              </div>
+              <div class="row">
+            <div class="col-md-4 vheight" style="background-color:lightgrey">
+              <h6 style="font-weight:bold;">City Name</h6>
+              <div id="city-name"></div>
+            </div> 
+            <div class="col-md-7 vheight" style="background-color:lightgrey">
+              <h6 style="font-weight:bold;">Safety Score</h6>
+              <div id="city-safety-score"></div>            
+            </div>
+            </div>
+            {{!-- <button id="save-btn" type="submit" class="btn btn-default">Add to wish list</button>    --}}
+            <div class="row pure-u-1-2">
+              <button type="submit" class="pure-button pure-button-primary btn">Add to wish list</button>
+            </div>
           </div>
-        </div>
-        <div class="col-md-5 vheight" style="background-color:lightgrey">
-          <h4 style="font-weight:bold;">Safety Score</h4>
-          <div id="city-safety-score"></div>
-        </div>
-        <div class="col-md-5">
-          <button id="save-btn" type="submit" class="btn btn-default">Add to wish list</button>
-        </div>
       </div>
-
     </div>
   </div>
+
   {{!-- <script>
     $(document).ready(function() {
        $(document).foundation();
