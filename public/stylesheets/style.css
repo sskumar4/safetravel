@@ -26,6 +26,8 @@ form.login {
   border-color: #0078E7;
 }
 
+
+
 .cen {
   /*justify-content: center;
    margin: auto; */
@@ -105,4 +107,20 @@ height: 200px;
 
 .btn1{
   margin-top: 10px; 
+ }
+ .card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  margin-top: 85px;
+  margin-bottom: 160px;
+ }
+
+ .card1 {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  margin-top: 45px;
+  margin-bottom: 160px;
+  margin-left: 150px;
+ }
+
+ .imgtop{
+   margin-top: 8px;
  }
