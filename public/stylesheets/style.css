@@ -26,6 +26,13 @@ form.login {
   border-color: #0078E7;
 }
 
+.wishlist{
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  margin-top: -25px;
+  margin-left: -25px;
+}
 
 
 .cen {
@@ -55,7 +62,13 @@ label{
   font-weight: bold;
 }
 
-#ul.no-bullets {
+.wl-li{
+  margin: auto;
+  padding: auto;
+  
+}
+
+.no-bullets {
   list-style-type: none; /* Remove bullets */
   padding: 0; /* Remove padding */
   margin: 0; /* Remove margins */
