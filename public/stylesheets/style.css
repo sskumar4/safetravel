@@ -99,12 +99,13 @@ height: 200px;
 
 .item {
   display: inline;
+  padding: 14px 25px;
 }
 .item a {
   display: inline-block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  
 }
 .item a:hover {
   background-color: #f3b666;
