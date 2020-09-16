@@ -1,5 +1,5 @@
-<div class="container-fluid p-0 flex">
-<ul class="nav" style="display:flex; justify-content:center">
+<div class="pure-menu pure-menu-horizontal bar">
+<ul style="display:flex; justify-content:center">
     <li class="item"><a href="/wishlist"> Wish List </a></li>
     <li class="item"><a href="/logout"> Logout </a></li>   
 </ul>
@@ -8,12 +8,14 @@
 
 
   <div class="container-fluid p-0">      
-      <div class="row col-md-12">
-        <h4 style="text-align:center; margin-top:20px; color:#0078E7">Welcome <span class="member-name"></span></h4>
+      <div class="row col-md-12" style="margin: auto" >
+        <div class="row" >
+        <h4 style="margin: auto; margin-top:20px; color:#0078E7">Welcome <span class="member-name"></span>!</h4>
+        </div>
         <div class="row">
           <div class="col-md-5">
-            <form class="form-box">
-              <div class="form-city">
+            <form class="form-box2">
+              {{!-- <div class="form-city"> --}}
               <label for="safeCity"><h6 style="font-weight:bold">How safe is the city?</h6></label>
           
               <select name="cities" id="city-input">
@@ -25,29 +27,29 @@
                <option value="New York">New York, USA</option>
                <option value="San Fransisco">San Fransisco, USA</option>
               </select>
-              <input id="submit" type="submit" value="Submit">
-              </div>                    
+              <input class="pure-button pure-button-primary btn1" id="submit" type="submit" value="Submit">
+              {{!-- </div>                     --}}
               <!-- <button id="submit" type="submit" class="btn btn-default">Submit</button>  -->
             </form>
          </div>  
        
-          <div class="col-md-6 m-0 p-0">        
+          <div class="col-md-6 m-10 p-0 form-box2">        
               <div class="row">
-            <h6 style="font-weight:bold;">Destination Safety Ratings</h6>
+            <h6 style="font-weight:bold;margin-left:35px; margin-top:20px">Destination Safety Ratings</h6>
               </div>
               <div class="row">
-            <div class="col-md-4 vheight" style="background-color:lightgrey">
-              <h6 style="font-weight:bold;">City Name</h6>
-              <div id="city-name"></div>
+            <div class="col-md-4 vheight">
+              <h6 style="font-weight:bold;margin-left:20px;">City Name</h6>
+              <div class="cityname" id="city-name"></div>
             </div> 
-            <div class="col-md-7 vheight" style="background-color:lightgrey">
+            <div class="col-md-7 vheight">
               <h6 style="font-weight:bold;">Safety Score</h6>
               <div id="city-safety-score"></div>            
             </div>
             </div>
             {{!-- <button id="save-btn" type="submit" class="btn btn-default">Add to wish list</button>    --}}
             <div class="row pure-u-1-2">
-              <button type="submit" class="pure-button pure-button-primary btn">Add to wish list</button>
+              <button type="submit" class="pure-button pure-button-primary btn" id="save-btn">Add to wish list</button>
             </div>
           </div>
       </div>

@@ -131,20 +131,9 @@ amadeus.safety.safetyRatedLocations.get({
     
 
   app.post("/api/citySafetyScore", function(req, res) {
-    let userid =1;
     if (req.user) {
     console.log('user!!!',req.user);
-    db.User.findOne({ where: { email: req.user.email } }).then (function (curUser) {
-      console.log('curUser????', curUser);
-      console.log('curUser.id????',curUser.id); 
-      console.log('curUser.email????',curUser.email); // 'My email'
-      userid = curUser.id;
-      console.log('userid????', userid);
     
-  }).catch(function (err){
-    console.log(err);
-    res.status(401).json(err);
-  });
     console.log('In route - api/citySafetyScore');
     console.log('req.body',req.body);
     console.log(req.user);
@@ -157,7 +146,8 @@ amadeus.safety.safetyRatedLocations.get({
       scPoliticalFreedom: req.body.scPoliticalFreedom,
       scTheft: req.body.scTheft,
       scWomen:req.body.scWomen,
-      UserId: userid
+      UserId: req.user.id
+
     })
       .then(function(data) {
         res.json(data);
@@ -194,9 +184,7 @@ amadeus.safety.safetyRatedLocations.get({
       // })
 
        //   console.log('dbcity',dbcity);
-  
-   
-        
+         
 
       } else {
         res.status(401).json(err);

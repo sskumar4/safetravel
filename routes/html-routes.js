@@ -41,18 +41,12 @@ module.exports = function(app) {
     // res.sendFile(path.join(__dirname, "../public/wishlist.html"));
     console.log("In /wishlist html routes req.user", req.user);
     let dbCity = await db.City.findAll({
-
+    where: { 
+      UserId: req.user.id
+    } 
     });
     console.log(dbCity);
     let hbsObject = {cities: dbCity}
     res.render("wishlist",hbsObject);
-    // db.City.findAll().then(function( data){
-    //   console.log('data',data);
-    //   //let test = [{test:"test"}];
-    //   let test = {test: [{value: "hello"}]};
-    //   console.log('test',test);
-    //   res.render("wishlist", test);
-    // })
-    //res.render("wishlist");
-  }); 
+   }); 
 };

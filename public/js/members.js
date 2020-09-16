@@ -13,13 +13,16 @@ $(document).ready(function() {
   let scTheft = 0;
   let scWomen = 0;
 
+
+  
   $.get("/api/user_data").then(function(data) {
-    $(".member-name").text(data.email);
+    const uname = data.email.substring(0, data.email.indexOf("@"));
+    $(".member-name").text(uname);
   });
 
-  function saveCityToDb() {
+  async function  saveCityToDb() {
     console.log('Enter saveCityToDb');
-    $.post("/api/citySafetyScore", {
+  let   response = await $.post("/api/citySafetyScore", {
       city: scCityName,
       scLgbtq: scLgbtq,
       scMedical: scMedical,
@@ -28,23 +31,26 @@ $(document).ready(function() {
       scPoliticalFreedom: scPoliticalFreedom,
       scTheft: scTheft,
       scWomen: scWomen
-    })
-      .then(function(response) {
-        console.log("Successfull Saved city to DB!");
-  })
+    });
+    return response;
+  //     .then(function(response) {
+  //       console.log('response', response);
+  //       console.log("Successfull Saved city to DB!");
+  // })
       // .catch(function(err) {
       //   console.log(err);
       // });
 
     }
-  saveWishListBtn.on("click", (event) => {
+  saveWishListBtn.on("click", async (event) => {
     event.preventDefault();
 
   
     if (!scCityName) {
       return;
     }
-    saveCityToDb();
+    let res = await saveCityToDb();
+    console.log('res',res)
     window.location.replace("/wishlist");
   
     // let cityDetails = cityInput.
