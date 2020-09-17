@@ -1,6 +1,8 @@
 ## Project Name: SafeTravel
 
-![image](public/image/sf-travel.jpg)
+
+ [![Thumbnail](public/image/sf-travel.jpg)](https://safe-travel-wishlist.herokuapp.com/)
+
 
 ## Table of Contents
 
