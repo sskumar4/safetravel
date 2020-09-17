@@ -1,6 +1,6 @@
 ## Project Name: SafeTravel
 
-![image](public/assets/img/sf-travel.jpg)
+![image](public/image/sf-travel.jpg)
 
 ## Table of Contents
 
@@ -10,7 +10,7 @@
 * 3. [Technologies](#Technologies)
 * 4. [Files](#Files)
 * 5. [Features](#Features)
-* 6. [Future Development](Future Develoment)
+* 6. [Future Development](#FutureDeveloment)
 * 7. [Launch](#Launch)
 
 <!-- vscode-markdown-toc-config
