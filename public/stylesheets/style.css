@@ -1,7 +1,9 @@
+/*SafeTravel app CSS*/
+
 form.signup,
 form.city,
 form.login {
-  margin-top: 50px;
+  margin-top: 40px;
 }
 .cityname{
   margin-left:20px;
@@ -52,6 +54,9 @@ h2{
   padding-top: 15px;
 }
 
+.signup-text{
+  margin-top: 15px;
+}
 
 .selected{
     background-color:#f3b666;
