@@ -17,6 +17,7 @@ form.login {
   border-radius: 25px;
   border: solid;
   border-color: #0078E7;
+  align-self:center;
 }
 
 .form-box2 {
@@ -26,6 +27,7 @@ form.login {
   border-radius: 25px;
   border: solid;
   border-color: #0078E7;
+  align-self:center;
 }
 
 .wishlist{
@@ -142,6 +144,11 @@ height: 200px;
 
  .imgtop{
    margin-top: 8px;
+ }
+
+ footer{
+   background-color:#0078E7 ;
+   height: 75px;
  }
 .foot{
   color:white;
