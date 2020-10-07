@@ -146,10 +146,24 @@ height: 200px;
    margin-top: 8px;
  }
 
- footer{
+ /* .footer{
+   height: 50px;
+   margin-top: 10px;  
    background-color:#0078E7 ;
-   height: 75px;
+ } */
+ .footer {
+  position: fixed;
+  margin-top: 2%;
+  height: 30px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.8em;
+  bottom: 0px;
+  background-color:#0078E7 ;
  }
+
 .foot{
   color:white;
+  text-align: center;
+  padding-top: 5px;
 }
