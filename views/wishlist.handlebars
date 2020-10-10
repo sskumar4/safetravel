@@ -1,25 +1,22 @@
 
 <div class="pure-menu pure-menu-horizontal bar">
   <ul style="display:flex; justify-content:center">
-      <li class="item"><a href="/signup">Home</a></li> 
+      <li class="item"><a href="/signup">Home</a></li>
       <li class="item"><a href="/members">City Safety Score</a></li>
-      <li class="item"><a href="/logout">Logout</a></li>   
+      <li class="item"><a href="/logout">Logout</a></li>
   </ul>
 </div>
- 
    <div class="container-md wishlist">
-      <div class="row ">
-        <div class="col-md-11 ">
+      <div class="row top">
+        <h3 class="cen text-center">My safe travel destinations wish list</h3>
+        {{!-- <div class="col-md-11"> --}}
           <div class="row mt-5">
-          <h3 style="text-center">My safe travel destinations wish list</h3> 
+
           <div class="row">
             {{> cities/city-block}}
           </div>
-              
-
-          
         </div>
-        </div>
+        {{!-- </div> --}}
       </div>
     </div>
 
